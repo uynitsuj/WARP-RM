@@ -1,6 +1,6 @@
 # Reproducing the simulated bottles-in-bin results
 
-This document reproduces **Table I** of the CoRL rebuttal: simulated
+This document reproduces **Table I** of the paper: simulated
 bottle-in-bin, 512 paired scenes x 6 bottles, 60 s horizon, every curation arm
 holding 31.5% of the data.
 
