@@ -1,7 +1,7 @@
 # Reproducing the simulated bottles-in-bin results
 
-This document reproduces **Table I** of the paper: simulated
-bottle-in-bin, 512 paired scenes x 6 bottles, 60 s horizon, every curation arm
+This document describes how to reproduce the paper's simulated bottles-in-bin
+results: 512 paired scenes x 6 bottles, 60 s horizon, every curation arm
 holding 31.5% of the data.
 
 | Method | Data kept | Bottles/scene | Thrpt (/hr) | All 6 |
@@ -73,9 +73,9 @@ python scripts/train.py \
 ```
 
 **`--source-standard-stride 15` sets the label calibration.** The sampler's
-path budget stays at the fixed Table-I-era defaults: centre 1.5 s, half-range
+path budget stays at the fixed paper-experiment defaults: centre 1.5 s, half-range
 1.0 s — a `[0.5, 2.5]` s band — and the C51 support stays fixed at ±3.0.
-These ARE the values the Table I reward model trained with; do not override
+These ARE the values the reward model used for the reported results trained with; do not override
 them when reproducing the table.
 
 An earlier revision of this repo (2026-08-15, PR #2) derived the band from
@@ -84,7 +84,7 @@ support, as defaults. Measured downstream at n=512 those defaults cost
 −0.486 bottles/scene against the fixed values above (p=2e-08, paired, same
 seed/recipe/eval), so PR #3 pinned the defaults back. Both derivations remain
 available as explicit opt-ins (`--ar-center-stride-sec -1`,
-`--ar-half-range-sec -1`, `--auto-bin-range`) — do not use them for Table I.
+`--ar-half-range-sec -1`, `--auto-bin-range`) — do not use them to reproduce the reported results.
 
 Every run prints two audits. Check them before trusting a head:
 
